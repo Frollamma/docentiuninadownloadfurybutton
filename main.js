@@ -14,7 +14,8 @@
     let base_url_string = 'https://www.docenti.unina.it/webdocenti-be/allegati/materiale-didattico/';
     let pdfPattern = /\.pdf$/; // ending with .pdf
     let filePattern = /\..+$/; // ending with .* (to exclude directories)
-
+    let separator = '__';
+    
     function createButton(context, func) {
         var button = document.createElement("input");
         button.type = "button";
@@ -67,9 +68,9 @@
             }).then(resp => resp.json())
                 .then(json => {
                 for (let element of json.contenutoCartella){
-                    let prep = file.nome + '[+]';
+                    let prep = file.nome + separator;
                     if (name_prepend != '')
-                        prep = name_prepend + '[+]' + prep;
+                        prep = name_prepend + separator + prep;
                     download_element(element, prep);
                 }
             })
