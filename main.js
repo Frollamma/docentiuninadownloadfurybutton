@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Docenti unina autodownloader button (with popups!)
-// @namespace    http://tampermonkey.net/
+// @namespace    https://puntodegenere.netlify.app/
 // @version      1.1
-// @description  Creates a buttons that allows you to download all files at once. It creates a popup every time but you can change some settings to speed it up, check https://superuser.com/questions/901289/download-link-from-firefox-console
-// @author       Frollo
+// @description  Creates a button that allows you to download all files at once.
+// @author       Frollo & ZOLV
 // @match        https://www.docenti.unina.it/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=unina.it
 // @grant        none
