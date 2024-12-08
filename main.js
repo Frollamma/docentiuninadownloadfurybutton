@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name         Docenti unina autodownloader button (with popups!)
+// @homepage     https://github.com/Frollamma/docentiuninadownloadfurybutton
 // @namespace    https://puntodegenere.netlify.app/
 // @version      1.1
 // @description  Creates a button that allows you to download all files at once.
@@ -7,6 +8,7 @@
 // @match        https://www.docenti.unina.it/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=unina.it
 // @grant        none
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
@@ -15,7 +17,7 @@
     let pdfPattern = /\.pdf$/; // ending with .pdf
     let filePattern = /\..+$/; // ending with .* (to exclude directories)
     let separator = '__';
-    
+
     function createButton(context, func) {
         var button = document.createElement("input");
         button.type = "button";
@@ -25,6 +27,7 @@
     }
 
     window.onload = function() {
+        console.log("Docenti Unina Download Fury Button is running!");
         createButton(document.body, function() {
 
             let angular_element = document.querySelector('[ng-show*="materialeDidatticoController"]');
@@ -69,11 +72,14 @@
                 .then(json => {
                 for (let element of json.contenutoCartella){
                     let prep = file.nome + separator;
-                    if (name_prepend != '')
+                    if (name_prepend != '') {
                         prep = name_prepend + separator + prep;
+                    }
                     download_element(element, prep);
                 }
             })
         }
     }
+
+    console.log("Docenti Unina Download Fury Button exists!");
 })();
